@@ -1,0 +1,15 @@
+import java.util.*;
+class searchinstring{
+    public static void main(String arsgs[]){
+        String str="yuvraj";
+        char target='r';
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)==target){
+                System.out.println(i);
+                return;
+            }
+        }
+        System.out.println("-1");
+
+    }
+}
