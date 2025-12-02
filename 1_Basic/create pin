@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class CreatePIN {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int input1 = sc.nextInt();
+        int input2 = sc.nextInt();
+        int input3 = sc.nextInt();
+
+        int[] nums = {input1, input2, input3};
+
+        int maxDigit = -1;
+
+        int[] h = new int[3];
+        int[] t = new int[3];
+        int[] u = new int[3];
+
+        for (int i = 0; i < 3; i++) {
+            int n = nums[i];
+
+            h[i] = n / 100;
+            t[i] = (n / 10) % 10;
+            u[i] = n % 10;
+
+            // track maximum among all digits
+            maxDigit = Math.max(maxDigit, h[i]);
+            maxDigit = Math.max(maxDigit, t[i]);
+            maxDigit = Math.max(maxDigit, u[i]);
+        }
+
+        int hundreds = Math.min(h[0], Math.min(h[1], h[2]));
+        int tens = Math.min(t[0], Math.min(t[1], t[2]));
+        int units = Math.min(u[0], Math.min(u[1], u[2]));
+
+        int pin = maxDigit * 1000 + hundreds * 100 + tens * 10 + units;
+
+        System.out.println(pin);
+    }
+}
